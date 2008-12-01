@@ -1,10 +1,9 @@
 module RedirectBackHelper
   
-  # creates a link to the session[:return_to] uri if there is one and to the given block of params if not
+  # Creates a link to the session[:return_to] uri or to the given block if there is no stored return point
+  # Does not wipe :return_to_uri after it's been used.
   def link_back(text, *params)
-    uri = session[:return_to_uri]
-    session[:return_to_uri] = nil
-    uri ? link_to(text, uri) : link_to(text, *params)
+    session[:return_to_uri] ? link_to(text, session[:return_to_uri]) : link_to(text, *params)
   end
   
 end

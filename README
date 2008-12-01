@@ -1,6 +1,6 @@
 Makes it easier to redirect back to actions by storing the return path in the session.
 
-Place this is application_controller.rb:
+Place this in application_controller.rb:
 
     include RedirectBack
     
